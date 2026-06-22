@@ -36,10 +36,25 @@ a {
     text-align: center;
 }
 
-.botao:hover {
-    background: #00ff00;
-    color: black;
+/* Botões quadrados e estilo terminal */
+button, .botao {
+    background: #000;          /* Fundo preto */
+    color: #0f0;               /* Texto verde */
+    border: 1px solid #0f0;    /* Borda verde fina */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    border-radius: 0;          /* REMOVE o arredondado */
+    text-transform: uppercase; /* Deixa tudo em maiúsculo */
 }
+
+button:hover {
+    background: #0f0;          /* Inverte as cores ao passar o mouse */
+    color: #000;
+}
+
+
 #status-panel {
     position: fixed;
     top: 20px;
