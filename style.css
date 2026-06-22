@@ -2,13 +2,20 @@ body{
     background:black;
     color:#00ff00;
     font-family:"Courier New", monospace;
-    max-width:700px;
+    font-size:22px;
+    line-height:1.8;
+    max-width:800px;
     margin:auto;
     padding:30px;
 }
 
 h1{
     color:#00ff00;
+    font-size:36px;
+}
+
+p{
+    font-size:22px;
 }
 
 a{
@@ -22,6 +29,7 @@ a{
     border:1px solid #00ff00;
     color:#00ff00;
     text-decoration:none;
+    font-size:20px;
 }
 
 .botao:hover{
