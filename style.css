@@ -40,3 +40,13 @@ a {
     background: #00ff00;
     color: black;
 }
+#status-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: 1px solid #00ff00;
+    padding: 15px;
+    font-size: 14px;
+    width: 200px;
+    background: rgba(0, 20, 0, 0.9);
+}
