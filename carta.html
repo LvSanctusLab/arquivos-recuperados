@@ -3,37 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>CARTAS</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <script>
-        // SEGURANÇA: Se não estiver logado, volta pro início
-        if (sessionStorage.getItem('estaLogado') !== 'true') {
-            window.location.href = 'index.html';
-        }
+        if (sessionStorage.getItem('logado') !== 'true') window.location.href = 'index.html';
     </script>
 
-    <div id="status-panel">
-        CPU: 42%<br>
-        RAM: 14GB/32GB<br>
-        ACESSO: 22-06-2026<br>
-        HORA: <span id="relogio"></span>
-    </div>
-
+    <div id="status-panel">CPU: 42% | HORA: <span id="relogio"></span></div>
+    
     <div id="container">
         <h1>> CARTAS</h1>
-        <hr>
         <a class="botao" href="05.05.2025.html">> 05.05.2025</a>
-        <a class="botao" href="12.06.2025.html">> 12.06.2025</a>
-        <hr>
         <a href="index.html">> voltar</a>
     </div>
 
     <script>
-        // Script do Relógio (Precisa estar em todas as páginas)
-        setInterval(() => {
-            document.getElementById('relogio').innerText = new Date().toLocaleTimeString();
-        }, 1000);
+        setInterval(() => document.getElementById('relogio').innerText = new Date().toLocaleTimeString(), 1000);
     </script>
 </body>
 </html>
