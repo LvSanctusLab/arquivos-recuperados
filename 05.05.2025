@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>05.05.2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>> 05.05.2025</h1>
+
+<hr>
+
+<p>
+Aqui fica o texto da carta.
+</p>
+
+<hr>
+
+<a href="carta.html">
+> voltar
+</a>
+
+</body>
+
+</html>
