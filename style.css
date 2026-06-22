@@ -40,3 +40,17 @@ a{
 hr{
     border:1px solid #00ff00;
 }
+p{
+    font-size:28px;
+    line-height:2;
+}
+
+pre{
+    font-size:28px;
+    line-height:2;
+    white-space:pre-wrap;
+}
+
+code{
+    font-size:28px;
+}
