@@ -1,63 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
     <title>CENTRAL_ALPHA</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
     <div id="status-panel" style="display:none;">
         CPU: 42%<br>
         RAM: 14GB/32GB<br>
-        Ultimo Acesso: 23-06-2026<br>
-        Horário: <span id="relogio"></span>
+        ACESSO: 22-06-2026<br>
+        HORA: <span id="relogio"></span>
     </div>
+    
+    <div id="container">
+        <div id="boot-screen">
+            <h1>> INICIALIZANDO SISTEMA...</h1>
+            <p id="boot-log">Carregando módulos...</p>
+        </div>
 
-    <div id="boot-screen">
-        <h1>> INICIALIZANDO SISTEMA...</h1>
-        <p id="boot-log">Carregando módulos...</p>
-    </div>
+        <div id="login-screen" style="display:none;">
+            <h1>> ACESSO RESTRITO</h1>
+            <input type="password" id="senha" placeholder="SENHA (6 DÍGITOS)" maxlength="6">
+            <button class="botao" onclick="checkSenha()">ACESSAR</button>
+        </div>
 
-    <div id="login-screen" style="display:none;">
-        <h1>> ACESSO RESTRITO</h1>
-        <input type="password" id="senha" placeholder="SENHA (6 DÍGITOS)">
-        <button class="botao" onclick="checkSenha()">ACESSAR</button>
-    </div>
-
-    <div id="menu-screen" style="display:none;">
-        <h1>> SISTEMA_DE_ARQUIVOS</h1>
-        <a class="botao" href="carta.html">> abrir_carta.log</a>
-        <a class="botao" href="fisica.html">> abrir_fisica.txt</a>
-        <a class="botao" href="programacao.html">> abrir_programacao.py</a>
+        <div id="menu-screen" style="display:none;">
+            <h1>> SISTEMA_DE_ARQUIVOS</h1>
+            <a class="botao" href="carta.html">> abrir_carta.log</a>
+            <a class="botao" href="fisica.html">> abrir_fisica.txt</a>
+            <a class="botao" href="programacao.html">> abrir_programacao.py</a>
+        </div>
     </div>
 
     <script>
-        // Lógica de Boot
+        // 1. Lógica de Boot
         const log = document.getElementById('boot-log');
         setTimeout(() => log.innerText = "> CARREGANDO KERNEL...", 1000);
         setTimeout(() => log.innerText = "> MONTANDO DISCO...", 2000);
-        setTimeout(() => {
-            document.getElementById('boot-screen').style.display = 'none';
-            document.getElementById('login-screen').style.display = 'block';
-        }, 3500);
-
-        // Lógica de Senha
-        function checkSenha() {
-    if(document.getElementById('senha').value === "240625") {
-        // Salva que o usuário está logado
-        sessionStorage.setItem('estaLogado', 'true');
         
-        document.getElementById('login-screen').innerHTML = "<h1>> ACESSANDO...</h1>";
-        setTimeout(() => {
-            document.getElementById('login-screen').style.display = 'none';
-            document.getElementById('menu-screen').style.display = 'block';
-            document.getElementById('status-panel').style.display = 'block';
-        }, 1000);
-    } else { alert("ACESSO NEGADO"); }
-}
+        window.onload = function() {
+            // Verifica se o usuário já estava logado
+            if (sessionStorage.getItem('estaLogado') === 'true') {
+                document.getElementById('boot-screen').style.display = 'none';
+                document.getElementById('menu-screen').style.display = 'block';
+                document.getElementById('status-panel').style.display = 'block';
+            } else {
+                setTimeout(() => {
+                    document.getElementById('boot-screen').style.display = 'none';
+                    document.getElementById('login-screen').style.display = 'block';
+                }, 3500);
+            }
+        };
 
+        // 2. Lógica de Senha
+        function checkSenha() {
+            if(document.getElementById('senha').value === "240625") {
+                sessionStorage.setItem('estaLogado', 'true');
+                document.getElementById('login-screen').innerHTML = "<h1>> ACESSANDO...</h1>";
+                setTimeout(() => {
+                    location.reload(); // Recarrega para mostrar o menu logado
+                }, 1000);
+            } else { alert("ACESSO NEGADO"); }
+        }
 
-        // Relógio do Painel
+        // 3. Relógio do Painel
         setInterval(() => {
             document.getElementById('relogio').innerText = new Date().toLocaleTimeString();
         }, 1000);
