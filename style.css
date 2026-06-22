@@ -1,13 +1,27 @@
 /* style.css (Versão Otimizada) */
+/* No seu style.css */
+/* No seu style.css */
 body {
-    background: black;
-    color: #00ff00;
-    font-family: "Courier New", monospace;
-    max-width: 600px;
-    margin: auto;
-    padding: 30px;
-    line-height: 1.6;
+    background: #000;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace; /* Tente mudar para 'Courier Prime' se quiser algo mais vintage */
+    display: flex;
+    justify-content: center; /* Centraliza horizontal */
+    align-items: center;     /* Centraliza vertical */
+    height: 100vh;
+    margin: 0;
 }
+
+input {
+    background: #000;
+    border: 1px solid #0f0;
+    color: #0f0;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    text-align: center;
+}
+
 
 h1 {
     color: #00ff00;
