@@ -3,43 +3,19 @@ body {
     color: #0f0;
     font-family: 'Courier New', monospace;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     height: 100vh;
     display: flex;
-    justify-content: center; /* Centraliza tudo */
-    align-items: center;     /* Centraliza tudo */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Container principal para centralizar o texto */
-#container {
-    width: 90%;
-    max-width: 600px;
-}
-
-h1 { color: #0f0; font-size: 28px; border-bottom: 1px solid #0f0; }
-p { font-size: 20px; }
-
-/* Botões Quadrados */
-.botao, button {
-    display: block;
-    width: 100%;
-    background: #000;
-    color: #0f0;
-    border: 1px solid #0f0;
-    padding: 15px;
-    margin: 10px 0;
-    text-align: center;
-    font-family: 'Courier New', monospace;
-    font-size: 18px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-.botao:hover, button:hover { background: #0f0; color: #000; }
+#container { width: 90%; max-width: 600px; text-align: left; }
+h1 { color: #0f0; font-size: 28px; border-bottom: 1px solid #0f0; padding-bottom: 5px; }
+.botao { display: block; background: #000; color: #0f0; border: 1px solid #0f0; padding: 12px; margin: 10px 0; text-decoration: none; text-transform: uppercase; text-align: center; }
+.botao:hover { background: #0f0; color: #000; }
 
 #status-panel {
-    position: fixed; top: 20px; right: 20px;
-    border: 1px solid #0f0; padding: 10px;
-    font-size: 12px; background: #000;
+    position: fixed; top: 10px; right: 10px;
+    border: 1px solid #0f0; padding: 10px; font-size: 12px; background: #000;
 }
