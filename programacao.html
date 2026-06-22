@@ -1,3 +1,10 @@
+<script>
+    // Se não estiver logado, manda de volta pro index
+    if (sessionStorage.getItem('estaLogado') !== 'true') {
+        window.location.href = 'index.html';
+    }
+</script>
+
 <!DOCTYPE html>
 <html>
 
