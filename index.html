@@ -43,15 +43,19 @@
 
         // Lógica de Senha
         function checkSenha() {
-            if(document.getElementById('senha').value === "240625") {
-                document.getElementById('login-screen').innerHTML = "<h1>> ACESSANDO...</h1>";
-                setTimeout(() => {
-                    document.getElementById('login-screen').style.display = 'none';
-                    document.getElementById('menu-screen').style.display = 'block';
-                    document.getElementById('status-panel').style.display = 'block';
-                }, 2000);
-            } else { alert("ACESSO NEGADO"); }
-        }
+    if(document.getElementById('senha').value === "240625") {
+        // Salva que o usuário está logado
+        sessionStorage.setItem('estaLogado', 'true');
+        
+        document.getElementById('login-screen').innerHTML = "<h1>> ACESSANDO...</h1>";
+        setTimeout(() => {
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('menu-screen').style.display = 'block';
+            document.getElementById('status-panel').style.display = 'block';
+        }, 1000);
+    } else { alert("ACESSO NEGADO"); }
+}
+
 
         // Relógio do Painel
         setInterval(() => {
