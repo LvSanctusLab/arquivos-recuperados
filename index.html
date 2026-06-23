@@ -12,11 +12,11 @@
     
     <div id="container">
         <div id="boot-screen"><h1>> INICIALIZANDO...</h1><p id="boot-log">Carregando...</p></div>
-        <div id="login-screen" style="display:none;">
-            <h1>> ACESSO RESTRITO</h1>
-            <input type="password" id="senha" placeholder="SENHA" maxlength="6">
-            <button class="botao" style="width:100%" onclick="check()">ENTRAR</button>
-        </div>
+        <div id="login-screen" style="display:none; text-align: center;">
+    <h1>> ACESSO RESTRITO</h1>
+    <input type="password" id="senha" placeholder="SENHA (6 DÍGITOS)" maxlength="6" style="display: block; width: 100%; margin: 10px auto; padding: 10px; background: #000; color: #0f0; border: 1px solid #0f0; text-align: center;">
+    <button class="botao" style="width: 100%; margin: 10px auto;" onclick="check()">ENTRAR</button>
+</div>
         <div id="menu-screen" style="display:none;">
             <h1>> SISTEMA_DE_ARQUIVOS</h1>
             <a class="botao" href="carta.html">> abrir_carta.log</a>
