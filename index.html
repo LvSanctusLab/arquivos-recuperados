@@ -47,6 +47,38 @@
                 location.reload();
             } else { alert("ACESSO NEGADO"); }
         }
+       const frases = [
+    "> TENTATIVA DE INTRUSÃO DETECTADA",
+    "> MEMÓRIA VIRTUAL BAIXA",
+    "> SINCRONIZANDO DADOS...",
+    "> AVISO: ARQUIVO CORROMPIDO",
+    "> CONEXÃO ESTÁVEL",
+    "> MANTENHA O FOCO, OPERADOR"
+];
+
+function mostrarPopup() {
+    const popup = document.getElementById('popup-terminal');
+    const texto = document.getElementById('popup-text');
+    
+    // Escolhe uma frase aleatória
+    texto.innerText = frases[Math.floor(Math.random() * frases.length)];
+    
+    // Posiciona em algum lugar aleatório da tela (entre 5% e 80% da tela)
+    popup.style.top = Math.floor(Math.random() * 80) + "%";
+    popup.style.left = Math.floor(Math.random() * 80) + "%";
+    
+    // Mostra
+    popup.style.display = 'block';
+    
+    // Esconde depois de 4 segundos
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 4000);
+}
+
+// Configura o intervalo (12000ms = 12 segundos)
+setInterval(mostrarPopup, 12000);
+ 
     </script>
 </body>
 </html>
