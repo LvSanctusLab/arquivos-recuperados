@@ -80,18 +80,44 @@
             setTimeout(() => { popup.style.display = 'none'; }, 4000);
         }
         setInterval(mostrarPopup, 12000);
+// --- NOVO SISTEMA DE POP-UP MULTIPLICÁVEL ---
+function criarPopUpAleatorio() {
+    // Frases para o pop-up
+    const frases = [
+        "SISTEMA: ENTRADA NÃO AUTORIZADA DETECTADA",
+        "AVISO: MEMÓRIA SOBRECARREGADA",
+        "ERRO: ARQUIVO CORROMPIDO ENCONTRADO",
+        "ALERTA: ATIVIDADE SUSPEITA",
+        "O SISTEMA ESTÁ VENDO VOCÊ..."
+    ];
+    
+    const msg = frases[Math.floor(Math.random() * frases.length)];
 
-        // Funções do Novo Modal
-        function abrirModal(mensagem) {
-            const modal = document.getElementById('meu-modal');
-            const texto = document.getElementById('modal-texto');
-            texto.innerText = mensagem;
-            modal.style.display = 'block';
-        }
+    // Cria o elemento do modal dinamicamente
+    const modal = document.createElement('div');
+    modal.className = 'modal-overlay'; // Usa o mesmo CSS de overlay que você já tem
+    modal.style.display = 'block';
+    modal.style.backgroundColor = 'transparent'; // Fundo transparente para poder acumular
+    
+    modal.innerHTML = `
+        <div class="modal-box" style="position: absolute; top: ${Math.random() * 60}%; left: ${Math.random() * 60}%;">
+            <div class="modal-header">
+                <span>AVISO_CRÍTICO</span>
+                <button onclick="this.parentElement.parentElement.parentElement.remove()">[X]</button>
+            </div>
+            <div class="modal-body">
+                <p>${msg}</p>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+}
 
-        function fecharModal() {
-            document.getElementById('meu-modal').style.display = 'none';
-        }
+// Dispara um novo pop-up a cada 8 segundos (frequência que você pode ajustar)
+setInterval(criarPopUpAleatorio, 8000);
+
+        
     </script>
 </body>
 </html>
