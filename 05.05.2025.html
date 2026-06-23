@@ -12,7 +12,6 @@
 
     <div id="status-panel">CPU: 42% | HORA: <span id="relogio"></span></div>
     
-    <!-- Container ÚNICO -->
     <div id="container">
         <h1>> 05.05.2025</h1>
 
@@ -28,15 +27,30 @@
         <p>Agora falando sério, o futuro me preocupa. Eu posso estar sendo paranoico mas tenho medo de que depois do ensino médio tudo isso se perca, não quero isso de jeito nenhum, de verdade. Queria que guardasse esta carta e essas fotinhas, uma amizade como a nossa deve ser guardada. Mesmo que o destino ou o tempo nos afaste, não deixa as memórias sumirem.</p>
         <p>Eu quero que saiba que você é muito mais que só mais um amigo ou colega, talvez eu não saiba demonstrar isso direito mas você é muito especial. Desculpa a repetição de palavras, eu realmente não sei o que te dizer. Assim, mais uma vez te parabenizo por seus 18 aninhos, te desejo tudo o de bom para sua vida, que todas as suas metas sejam alcançadas, paz e saúde a você. Eu te amo, caro amigo.</p>
 
-    <hr style="border: 0; border-top: 1px solid #0f0; margin: 20px 0;">
+        <hr style="border: 0; border-top: 1px solid #0f0; margin: 20px 0;">
         <a class="botao" href="carta.html">> voltar</a>
-    </div> <!
-    
+    </div>
+
+    <!-- Popup antigo -->
     <div id="popup-terminal" style="display:none;">
         <span id="popup-text"></span>
     </div>
 
+    <!-- Novo Modal (HTML fora do script) -->
+    <div id="meu-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span>SISTEMA_AVISO</span>
+                <button onclick="fecharModal()">[X]</button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-texto"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Funções de Relógio e Popup antigo
         setInterval(() => { const r = document.getElementById('relogio'); if(r) r.innerText = new Date().toLocaleTimeString(); }, 1000);
         const frases = ["> SISTEMA ESTÁVEL", "> ACESSO REMOTO ATIVO", "> VERIFICANDO DADOS...", "> AVISO: MANTENHA O SILÊNCIO"];
         function mostrarPopup() {
@@ -49,29 +63,18 @@
             setTimeout(() => { popup.style.display = 'none'; }, 4000);
         }
         setInterval(mostrarPopup, 15000);
-        <!-- NOVO MODAL -->
-<div id="meu-modal" class="modal-overlay">
-    <div class="modal-box">
-        <div class="modal-header">
-            <span>SISTEMA_AVISO</span>
-            <button onclick="fecharModal()">[X]</button>
-        </div>
-        <div class="modal-body">
-            <p id="modal-texto"></p>
-        </div>
-    </div>
-</div>
-function abrirModal(mensagem) {
-    const modal = document.getElementById('meu-modal');
-    const texto = document.getElementById('modal-texto');
-    texto.innerText = mensagem;
-    modal.style.display = 'block';
-}
 
-function fecharModal() {
-    document.getElementById('meu-modal').style.display = 'none';
-}
+        // Funções do Novo Modal
+        function abrirModal(mensagem) {
+            const modal = document.getElementById('meu-modal');
+            const texto = document.getElementById('modal-texto');
+            texto.innerText = mensagem;
+            modal.style.display = 'block';
+        }
 
+        function fecharModal() {
+            document.getElementById('meu-modal').style.display = 'none';
+        }
     </script>
 </body>
 </html>
