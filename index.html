@@ -13,21 +13,37 @@
     <div id="container">
         <div id="boot-screen"><h1>> INICIALIZANDO...</h1><p id="boot-log">Carregando...</p></div>
         <div id="login-screen" style="display:none; text-align: center;">
-    <h1>> ACESSO RESTRITO</h1>
-    <input type="password" id="senha" placeholder="SENHA (6 DÍGITOS)" maxlength="6" style="display: block; width: 100%; margin: 10px auto; padding: 10px; background: #000; color: #0f0; border: 1px solid #0f0; text-align: center;">
-    <button class="botao" style="width: 100%; margin: 10px auto;" onclick="check()">ENTRAR</button>
-</div>
+            <h1>> ACESSO RESTRITO</h1>
+            <input type="password" id="senha" placeholder="SENHA (6 DÍGITOS)" maxlength="6" style="display: block; width: 100%; margin: 10px auto; padding: 10px; background: #000; color: #0f0; border: 1px solid #0f0; text-align: center;">
+            <button class="botao" style="width: 100%; margin: 10px auto;" onclick="check()">ENTRAR</button>
+        </div>
         <div id="menu-screen" style="display:none;">
             <h1>> SISTEMA_DE_ARQUIVOS</h1>
             <a class="botao" href="carta.html">> abrir_carta.log</a>
             <a class="botao" href="fisica.html">> abrir_fisica.txt</a>
         </div>
     </div>
-<div id="popup-terminal" style="display:none;">
-    <span id="popup-text"></span>
-</div>
+
+    <!-- Popup antigo -->
+    <div id="popup-terminal" style="display:none;">
+        <span id="popup-text"></span>
+    </div>
+
+    <!-- Novo Modal (HTML fora do script) -->
+    <div id="meu-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span>SISTEMA_AVISO</span>
+                <button onclick="fecharModal()">[X]</button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-texto"></p>
+            </div>
+        </div>
+    </div>
 
     <script>
+        // Lógica de Inicialização e Login
         window.onload = () => {
             if (sessionStorage.getItem('logado') === 'true') {
                 document.getElementById('boot-screen').style.display = 'none';
@@ -39,60 +55,43 @@
                     document.getElementById('login-screen').style.display = 'block';
                 }, 2000);
             }
-            setInterval(() => document.getElementById('relogio').innerText = new Date().toLocaleTimeString(), 1000);
+            setInterval(() => {
+                const r = document.getElementById('relogio');
+                if(r) r.innerText = new Date().toLocaleTimeString();
+            }, 1000);
         };
+
         function check() {
             if(document.getElementById('senha').value === "240625") {
                 sessionStorage.setItem('logado', 'true');
                 location.reload();
             } else { alert("ACESSO NEGADO"); }
         }
-       const frases = [
-    "> ISSO ESTÁ FUNCIONANDO?",
-    "> VOCÊ CONSEGUE ME OUVIR?",
-    "> SINCRONIZANDO DADOS...",
-    "> AVISO: ARQUIVO CORROMPIDO",
-    "> CONEXÃO FRACA",
-    "> ISSO É REAL?"
-];
 
-function mostrarPopup() {
-    const popup = document.getElementById('popup-terminal');
-    const texto = document.getElementById('popup-text');
-    
-    // Escolhe uma frase aleatória
-    texto.innerText = frases[Math.floor(Math.random() * frases.length)];
-    
-    // Posiciona em algum lugar aleatório da tela (entre 5% e 80% da tela)
-    popup.style.top = Math.floor(Math.random() * 80) + "%";
-    popup.style.left = Math.floor(Math.random() * 80) + "%";
-    
-    // Mostra
-    popup.style.display = 'block';
-    
-    // Esconde depois de 4 segundos
-    setTimeout(() => {
-        popup.style.display = 'none';
-    }, 4000);
-}
+        // Sistema de Popup Antigo
+        const frases = ["> ISSO ESTÁ FUNCIONANDO?", "> VOCÊ CONSEGUE ME OUVIR?", "> SINCRONIZANDO DADOS...", "> AVISO: ARQUIVO CORROMPIDO", "> CONEXÃO FRACA", "> ISSO É REAL?"];
+        function mostrarPopup() {
+            const popup = document.getElementById('popup-terminal');
+            const texto = document.getElementById('popup-text');
+            texto.innerText = frases[Math.floor(Math.random() * frases.length)];
+            popup.style.top = Math.floor(Math.random() * 80) + "%";
+            popup.style.left = Math.floor(Math.random() * 80) + "%";
+            popup.style.display = 'block';
+            setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        }
+        setInterval(mostrarPopup, 12000);
 
-// Configura o intervalo (12000ms = 12 segundos)
-setInterval(mostrarPopup, 12000);
-        
- <!-- NOVO MODAL -->
-<div id="meu-modal" class="modal-overlay">
-    <div class="modal-box">
-        <div class="modal-header">
-            <span>SISTEMA_AVISO</span>
-            <button onclick="fecharModal()">[X]</button>
-        </div>
-        <div class="modal-body">
-            <p id="modal-texto"></p>
-        </div>
-    </div>
-</div>
+        // Funções do Novo Modal
+        function abrirModal(mensagem) {
+            const modal = document.getElementById('meu-modal');
+            const texto = document.getElementById('modal-texto');
+            texto.innerText = mensagem;
+            modal.style.display = 'block';
+        }
 
+        function fecharModal() {
+            document.getElementById('meu-modal').style.display = 'none';
+        }
     </script>
 </body>
 </html>
-
