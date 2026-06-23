@@ -49,6 +49,19 @@
             setTimeout(() => { popup.style.display = 'none'; }, 4000);
         }
         setInterval(mostrarPopup, 15000);
+        <!-- NOVO MODAL -->
+<div id="meu-modal" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <span>SISTEMA_AVISO</span>
+            <button onclick="fecharModal()">[X]</button>
+        </div>
+        <div class="modal-body">
+            <p id="modal-texto"></p>
+        </div>
+    </div>
+</div>
+
     </script>
 </body>
 </html>
