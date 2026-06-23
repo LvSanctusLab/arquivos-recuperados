@@ -78,7 +78,20 @@ function mostrarPopup() {
 
 // Configura o intervalo (12000ms = 12 segundos)
 setInterval(mostrarPopup, 12000);
- 
+        
+ <!-- NOVO MODAL -->
+<div id="meu-modal" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <span>SISTEMA_AVISO</span>
+            <button onclick="fecharModal()">[X]</button>
+        </div>
+        <div class="modal-body">
+            <p id="modal-texto"></p>
+        </div>
+    </div>
+</div>
+
     </script>
 </body>
 </html>
