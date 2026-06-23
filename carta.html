@@ -2,44 +2,40 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>SISTEMA_ALPHA</title>
+    <title>SISTEMA_DE_ARQUIVOS</title>
     <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-    <!-- Verificação de Segurança -->
     <script>
         if (sessionStorage.getItem('logado') !== 'true') window.location.href = 'index.html';
     </script>
 
-    <!-- Painel de Status -->
     <div id="status-panel">CPU: 42% | HORA: <span id="relogio"></span></div>
     
-    <!-- Container de Conteúdo -->
     <div id="container">
-        <h1>> 05.05.2025</h1> <!-- Mude apenas esta data -->
+        <h1>> ACESSO_CARTAS</h1>
         
-        <p>Aqui vai o texto da sua carta...</p>
-        <p>Mais um parágrafo...</p>
+        <a class="botao" href="05.05.2025.html">> 05.05.2025</a>
+        <a class="botao" href="12.06.2025.html">> 12.06.2025</a>
         
         <hr style="border: 0; border-top: 1px solid #0f0; margin: 20px 0;">
-        <a class="botao" href="carta.html">> voltar</a>
+        
+        <a class="botao" href="index.html">> voltar</a>
     </div>
 
-    <!-- Popup de Terminal -->
     <div id="popup-terminal" style="display:none;">
         <span id="popup-text"></span>
     </div>
 
-    <!-- Scripts Globais -->
     <script>
-        // 1. Relógio
+        // Relógio
         setInterval(() => {
             const r = document.getElementById('relogio');
             if(r) r.innerText = new Date().toLocaleTimeString();
         }, 1000);
 
-        // 2. Lógica do Popup (Mesma do index)
-        const frases = ["> SISTEMA ESTÁVEL", "> ACESSO REMOTO ATIVO", "> VERIFICANDO DADOS...", "> AVISO: MANTENHA O SILÊNCIO"];
+        // Lógica do Popup
+        const frases = ["> INDEXANDO CARTAS...", "> ARQUIVO LOCALIZADO", "> SISTEMA OPERACIONAL: OK", "> ENCRIPTANDO DADOS..."];
         function mostrarPopup() {
             const popup = document.getElementById('popup-terminal');
             const texto = document.getElementById('popup-text');
