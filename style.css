@@ -7,10 +7,13 @@ body {
     font-family: 'Courier New', monospace;
     margin: 0;
     padding: 20px;
+    height: 100vh;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    min-height: 100vh;
+    justify-content: center; /* Centraliza horizontal */
+    align-items: center;     /* Centraliza vertical */
+    flex-direction: column;  /* Garante que tudo fique em coluna */
 }
+
 
 #container {
     width: 100%;
