@@ -6,17 +6,27 @@ body {
     padding: 20px;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
+    justify-content: center; /* Centraliza o container no meio da tela */
+    align-items: flex-start; /* Alinha o conteúdo no topo, não no centro vertical */
 }
 
-#container { width: 90%; max-width: 600px; text-align: left; }
-h1 { color: #0f0; font-size: 28px; border-bottom: 1px solid #0f0; padding-bottom: 5px; }
-.botao { display: block; background: #000; color: #0f0; border: 1px solid #0f0; padding: 12px; margin: 10px 0; text-decoration: none; text-transform: uppercase; text-align: center; }
-.botao:hover { background: #0f0; color: #000; }
+#container {
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column; /* Isso empilha os itens (títulos, parágrafos, botões) */
+    text-align: left;       /* Força o texto a começar da esquerda */
+}
 
-#status-panel {
-    position: fixed; top: 10px; right: 10px;
-    border: 1px solid #0f0; padding: 10px; font-size: 12px; background: #000;
+p {
+    font-size: 24px;        /* Aumentei a fonte conforme solicitado */
+    line-height: 1.6;       /* Espaçamento melhor para leitura */
+    margin: 10px 0;
+    text-align: left;       /* Garante que o parágrafo se alinhe à esquerda */
+}
+
+h1 {
+    font-size: 32px;
+    border-bottom: 1px solid #0f0;
+    padding-bottom: 10px;
 }
