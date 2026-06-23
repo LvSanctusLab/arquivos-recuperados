@@ -7,10 +7,11 @@ body {
     font-family: 'Courier New', monospace;
     margin: 0;
     padding: 20px;
-    min-height: 100vh; /* Permite rolar a página */
+    min-height: 100vh;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: flex-start; /* Alinha no TOPO (evita o corte inicial) */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+    flex-direction: column;
 }
 
 #container {
@@ -19,9 +20,10 @@ body {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-top: 40px; /* Espaço para não colar no topo */
-    margin-bottom: 50px;
+    margin: auto; /* Força a centralização dentro do body */
+    padding: 20px 0;
 }
+
 
 
 
