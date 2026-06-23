@@ -1,34 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<title>12.06.2025</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>SISTEMA_ALPHA</title>
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-<h1>> 12.06.2025</h1>
-<p>[Registro recuperado]</p>
-<hr>
-<p>Teste_007</p>
-<h1>> 12.06.2025</h1>
-<p>Remanescente das velhas notas: COMO EU AMO ESSE CARA</p>
-<hr>
-<p>Nossa, eu não imaginava algo tão fofo assim.</p>
-<p>Mas... seria isso gentileza ou ele realmente está...</p>
-<p>A simplicidade, sinceridade e beleza na tua escrita me encantaram de verdade!</p>
-<p>Eu vou ser bem sincero contigo.</p>
-<p>Mesmo antes de abrir a carta, eu já estava muito contente só de você ter pensado em mim e ter a coragem e a determinação de me dar uma resposta.</p>
-<p>Sinceramente, sem palavras.</p>
-<p>Não existem palavras que representem de forma fiel o que eu senti lendo cada linha.</p>
-<p>Eu literalmente chorei. Mas de felicidade.</p>
-<p>Isso é algo que eu não faço há muito tempo.</p>
-<p>Não sei se em algum momento eu te falei, mas eu realmente tenho dificuldade em expressar emoções.</p>
-<p>E chorar é simplesmente a coisa mais difícil de eu fazer.</p>
-<p>Mas você conseguiu.</p>
-<p>Isso te torna cada vez mais único.</p>
-<p>Você é especial demais pra mim.</p>
-<p>Estou há um bom tempo olhando para o nada com um sorriso nada discreto.</p>
-<p>Eu te amo.</p>
-<p>Obrigado por existir e me deixar tão feliz.</p>
-<p>@-&//@:$@/&-&-@-@&-$:$:@-"-"</p>
+    <script>
+        if (sessionStorage.getItem('logado') !== 'true') window.location.href = 'index.html';
+    </script>
+
+    <div id="status-panel">CPU: 42% | HORA: <span id="relogio"></span></div>
+    
+    <div id="container">
+        <h1>> DATA_AQUI</h1>
+
+        <!-- COLOQUE SEUS PARÁGRAFOS ABAIXO -->
+        <p>Texto do primeiro parágrafo...</p>
+        <p>Texto do segundo parágrafo...</p>
+
+        <hr style="border: 0; border-top: 1px solid #0f0; margin: 20px 0;">
+        <a class="botao" href="carta.html">> voltar</a>
+    </div>
+
+    <div id="popup-terminal" style="display:none;"><span id="popup-text"></span></div>
+
+    <script>
+        setInterval(() => { const r = document.getElementById('relogio'); if(r) r.innerText = new Date().toLocaleTimeString(); }, 1000);
+        const frases = ["> SISTEMA ESTÁVEL", "> ACESSO REMOTO ATIVO", "> VERIFICANDO DADOS...", "> AVISO: MANTENHA O SILÊNCIO"];
+        function mostrarPopup() {
+            const popup = document.getElementById('popup-terminal');
+            const texto = document.getElementById('popup-text');
+            texto.innerText = frases[Math.floor(Math.random() * frases.length)];
+            popup.style.top = Math.floor(Math.random() * 80) + "%";
+            popup.style.left = Math.floor(Math.random() * 80) + "%";
+            popup.style.display = 'block';
+            setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        }
+        setInterval(mostrarPopup, 15000);
+    </script>
 </body>
 </html>
