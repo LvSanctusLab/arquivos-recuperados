@@ -12,11 +12,7 @@ body {
     justify-content: center; /* Centraliza horizontal */
     align-items: center;     /* Centraliza vertical */
     flex-direction: column;  /* Garante que tudo fique em coluna */
-    overflow-y: auto; 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinha no topo */
-    flex-direction: column;
+
 }
 
 
