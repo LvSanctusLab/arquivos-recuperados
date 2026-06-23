@@ -61,6 +61,16 @@
         </div>
     </div>
 </div>
+function abrirModal(mensagem) {
+    const modal = document.getElementById('meu-modal');
+    const texto = document.getElementById('modal-texto');
+    texto.innerText = mensagem;
+    modal.style.display = 'block';
+}
+
+function fecharModal() {
+    document.getElementById('meu-modal').style.display = 'none';
+}
 
     </script>
 </body>
