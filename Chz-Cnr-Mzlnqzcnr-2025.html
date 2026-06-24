@@ -23,21 +23,47 @@
         <a class="botao" href="carta.html">> voltar</a>
     </div>
 
-    <div id="popup-terminal" style="display:none;"><span id="popup-text"></span></div>
-
     <script>
-        setInterval(() => { const r = document.getElementById('relogio'); if(r) r.innerText = new Date().toLocaleTimeString(); }, 1000);
-        const frases = ["> SISTEMA ESTÁVEL", "> ACESSO REMOTO ATIVO", "> VERIFICANDO DADOS...", "> AVISO: MANTENHA O SILÊNCIO"];
-        function mostrarPopup() {
-            const popup = document.getElementById('popup-terminal');
-            const texto = document.getElementById('popup-text');
-            texto.innerText = frases[Math.floor(Math.random() * frases.length)];
-            popup.style.top = Math.floor(Math.random() * 80) + "%";
-            popup.style.left = Math.floor(Math.random() * 80) + "%";
-            popup.style.display = 'block';
-            setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        // Relógio
+        setInterval(() => {
+            const r = document.getElementById('relogio');
+            if(r) r.innerText = new Date().toLocaleTimeString();
+        }, 1000);
+
+        // Novo Sistema de Pop-up Multiplicável
+        function criarPopUpAleatorio() {
+            const frases = [
+                "SISTEMA: ENTRADA NÃO AUTORIZADA",
+                "AVISO: MEMÓRIA SOBRECARREGADA",
+                "ERRO: ARQUIVO CORROMPIDO",
+                "ALERTA: ATIVIDADE SUSPEITA",
+                "ESTOU VENDO VOCÊ..."
+            ];
+            
+            const msg = frases[Math.floor(Math.random() * frases.length)];
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            
+            const top = Math.floor(Math.random() * 50) + 10;
+            const left = Math.floor(Math.random() * 50) + 10;
+            
+            modal.innerHTML = `
+                <div class="modal-box" style="top: ${top}%; left: ${left}%;">
+                    <div class="modal-header">
+                        <span style="font-weight: bold;">AVISO_CRÍTICO</span>
+                        <button class="close-btn" onclick="this.parentElement.parentElement.parentElement.remove()">FECHAR</button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="margin: 10px 0; font-size: 14px;">${msg}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
         }
-        setInterval(mostrarPopup, 15000);
+
+        // Dispara um novo pop-up a cada 10 segundos
+        setInterval(criarPopUpAleatorio, 10000);
     </script>
 </body>
 </html>
