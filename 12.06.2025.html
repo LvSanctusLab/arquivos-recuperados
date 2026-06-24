@@ -15,42 +15,59 @@
     <div id="container">
         <h1>> 12.06.2025.</h1>
 
-        <!-- COLOQUE SEUS PARÁGRAFOS ABAIXO -->
         <p>COMO EU AMO ESSE CARA</p>
-
-<p>A simplicidade, sinceridade e beleza na sua escrita me encantaram de verdade!</p>
-
-<p>Eu vou ser bem sincero contigo. Mesmo antes de abrir a carta eu já estava muito contente só de você ter pensado em mim e ter a coragem e a determinação de me dar uma resposta, sinceramente, sem palavras.</p>
-
-<p>Não existem palavras que representem de forma fiel o que eu senti lendo cada palavra. Eu literalmente chorei, mas de felicidade; isso é algo que não faço há muito tempo.</p>
-
-<p>Não sei se em algum momento eu te falei, mas eu realmente tenho dificuldade em expressar emoções e chorar é simplesmente a coisa mais difícil de eu fazer, mas você conseguiu, isso te torna cada vez mais único.</p>
-
-<p>Você é especial demais pra mim.</p>
-
-<p>Estou há um bom tempo olhando pro nada com um sorriso nada discreto.</p>
-
-<p>Eu te amo, obrigado por existir e me deixar tão feliz 🦇❤️‍🩹❤️‍🩹💞</p>
+        <p>A simplicidade, sinceridade e beleza na sua escrita me encantaram de verdade!</p>
+        <p>Eu vou ser bem sincero contigo. Mesmo antes de abrir a carta eu já estava muito contente só de você ter pensado em mim e ter a coragem e a determinação de me dar uma resposta, sinceramente, sem palavras.</p>
+        <p>Não existem palavras que representem de forma fiel o que eu senti lendo cada palavra. Eu literalmente chorei, mas de felicidade; isso é algo que não faço há muito tempo.</p>
+        <p>Não sei se em algum momento eu te falei, mas eu realmente tenho dificuldade em expressar emoções e chorar é simplesmente a coisa mais difícil de eu fazer, mas você conseguiu, isso te torna cada vez mais único.</p>
+        <p>Você é especial demais pra mim.</p>
+        <p>Estou há um bom tempo olhando pro nada com um sorriso nada discreto.</p>
+        <p>Eu te amo, obrigado por existir e me deixar tão feliz 🦇❤️‍🩹❤️‍🩹💞</p>
 
         <hr style="border: 0; border-top: 1px solid #0f0; margin: 20px 0;">
         <a class="botao" href="carta.html">> voltar</a>
     </div>
 
-    <div id="popup-terminal" style="display:none;"><span id="popup-text"></span></div>
-
     <script>
-        setInterval(() => { const r = document.getElementById('relogio'); if(r) r.innerText = new Date().toLocaleTimeString(); }, 1000);
-        const frases = ["> SISTEMA ESTÁVEL", "> ACESSO REMOTO ATIVO", "> VERIFICANDO DADOS...", "> AVISO: MANTENHA O SILÊNCIO"];
-        function mostrarPopup() {
-            const popup = document.getElementById('popup-terminal');
-            const texto = document.getElementById('popup-text');
-            texto.innerText = frases[Math.floor(Math.random() * frases.length)];
-            popup.style.top = Math.floor(Math.random() * 80) + "%";
-            popup.style.left = Math.floor(Math.random() * 80) + "%";
-            popup.style.display = 'block';
-            setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        // Relógio
+        setInterval(() => {
+            const r = document.getElementById('relogio');
+            if(r) r.innerText = new Date().toLocaleTimeString();
+        }, 1000);
+
+        // Sistema de Pop-up Multiplicável
+        function criarPopUpAleatorio() {
+            const frases = [
+                "SISTEMA: ENTRADA NÃO AUTORIZADA",
+                "AVISO: MEMÓRIA SOBRECARREGADA",
+                "ERRO: ARQUIVO CORROMPIDO",
+                "ALERTA: ATIVIDADE SUSPEITA",
+                "ESTOU VENDO VOCÊ..."
+            ];
+            
+            const msg = frases[Math.floor(Math.random() * frases.length)];
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            
+            const top = Math.floor(Math.random() * 50) + 10;
+            const left = Math.floor(Math.random() * 50) + 10;
+            
+            modal.innerHTML = `
+                <div class="modal-box" style="top: ${top}%; left: ${left}%;">
+                    <div class="modal-header">
+                        <span style="font-weight: bold;">AVISO_CRÍTICO</span>
+                        <button class="close-btn" onclick="this.parentElement.parentElement.parentElement.remove()">FECHAR</button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="margin: 10px 0; font-size: 14px;">${msg}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
         }
-        setInterval(mostrarPopup, 15000);
+
+        setInterval(criarPopUpAleatorio, 10000);
     </script>
 </body>
 </html>
