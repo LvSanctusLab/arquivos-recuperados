@@ -79,31 +79,30 @@
             popup.style.display = 'block';
             setTimeout(() => { popup.style.display = 'none'; }, 4000);
         }
-        setInterval(mostrarPopup, 12000);
-// --- NOVO SISTEMA DE POP-UP MULTIPLICÁVEL ---
+        setInterval(mostrarPopup, 
+        // --- NOVO SISTEMA DE POP-UP MULTIPLICÁVEL ---
 function criarPopUpAleatorio() {
-    // Frases para o pop-up
     const frases = [
-        "SISTEMA: ENTRADA NÃO AUTORIZADA DETECTADA",
+        "SISTEMA: ENTRADA NÃO AUTORIZADA",
         "AVISO: MEMÓRIA SOBRECARREGADA",
-        "ERRO: ARQUIVO CORROMPIDO ENCONTRADO",
-        "ALERTA: ATIVIDADE SUSPEITA",
-        "O SISTEMA ESTÁ VENDO VOCÊ..."
+        "ERRO: ARQUIVO CORROMPIDO",
+        "ALERTA: ATIVIDADE SUSPEITA"
     ];
     
     const msg = frases[Math.floor(Math.random() * frases.length)];
 
-    // Cria o elemento do modal dinamicamente
     const modal = document.createElement('div');
-    modal.className = 'modal-overlay'; // Usa o mesmo CSS de overlay que você já tem
-    modal.style.display = 'block';
-    modal.style.backgroundColor = 'transparent'; // Fundo transparente para poder acumular
+    modal.className = 'modal-overlay';
+    
+    // Coordenadas aleatórias
+    const top = Math.floor(Math.random() * 60);
+    const left = Math.floor(Math.random() * 60);
     
     modal.innerHTML = `
-        <div class="modal-box" style="position: absolute; top: ${Math.random() * 60}%; left: ${Math.random() * 60}%;">
+        <div class="modal-box" style="top: ${top}%; left: ${left}%;">
             <div class="modal-header">
                 <span>AVISO_CRÍTICO</span>
-                <button onclick="this.parentElement.parentElement.parentElement.remove()">[X]</button>
+                <button class="close-btn" onclick="this.parentElement.parentElement.parentElement.remove()">FECHAR</button>
             </div>
             <div class="modal-body">
                 <p>${msg}</p>
@@ -114,10 +113,9 @@ function criarPopUpAleatorio() {
     document.body.appendChild(modal);
 }
 
-// Dispara um novo pop-up a cada 8 segundos (frequência que você pode ajustar)
+// Dispara um novo pop-up a cada 8 segundos
 setInterval(criarPopUpAleatorio, 8000);
 
-        
     </script>
 </body>
 </html>
