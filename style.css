@@ -92,8 +92,25 @@ p { font-size: 24px; line-height: 1.6; margin: 10px 0; }
     text-transform: uppercase;
 }
 
+
 .close-btn:hover {
     background: #0f0;
     color: #000;
 }
+.creditos {
+    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid #0f0;
+    padding-top: 10px;
+}
+
+.creditos p {
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo máquina de escrever */
+    color: #0f0;
+    font-size: 12px;
+    letter-spacing: 2px; /* Dá um ar mais tecnológico */
+    text-transform: uppercase;
+    opacity: 0.7; /* Leve transparência para não roubar a atenção das cartas */
+}
+
 
