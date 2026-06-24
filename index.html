@@ -12,28 +12,28 @@
     
     <div id="container">
         <div id="boot-screen"><h1>> INICIALIZANDO...</h1><p id="boot-log">Carregando...</p></div>
+        
         <div id="login-screen" style="display:none; text-align: center;">
             <h1>> ACESSO RESTRITO</h1>
             <input type="password" id="senha" placeholder="SENHA (6 DÍGITOS)" maxlength="6" style="display: block; width: 100%; margin: 10px auto; padding: 10px; background: #000; color: #0f0; border: 1px solid #0f0; text-align: center;">
             <button class="botao" style="width: 100%; margin: 10px auto;" onclick="check()">ENTRAR</button>
         </div>
+        
         <div id="menu-screen" style="display:none;">
-    <h1>> SISTEMA_DE_ARQUIVOS</h1>
-    
-    <a class="botao" href="carta.html">> abrir_carta.log</a>
-    
-    <a class="botao" style="opacity: 0.5; cursor: default; border-color: #555; color: #555;">> EM_MANUTENÇÃO</a>
+            <h1>> SISTEMA_DE_ARQUIVOS</h1>
+            
+            <a class="botao" href="carta.html">> abrir_carta.log</a>
+            
+            <a class="botao" style="opacity: 0.5; cursor: default; border-color: #555; color: #555;">> EM_MANUTENÇÃO</a>
 
-    <div class="creditos">
-        <p>SISTEMA DE: L*** H*******</p>
-    </div>
-</div>
-
-
+            <div class="creditos">
+                <p>SISTEMA DE: L*** H*******</p>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Lógica de Inicialização e Login
+        // 1. Lógica de Inicialização e Login
         window.onload = () => {
             if (sessionStorage.getItem('logado') === 'true') {
                 document.getElementById('boot-screen').style.display = 'none';
@@ -58,23 +58,14 @@
             } else { alert("ACESSO NEGADO"); }
         }
 
-        // NOVO SISTEMA DE POP-UP MULTIPLICÁVEL
+        // 2. Sistema de Pop-up
         function criarPopUpAleatorio() {
-            const frases = [
-                "SISTEMA: ENTRADA NÃO AUTORIZADA",
-                "AVISO: MEMÓRIA SOBRECARREGADA",
-                "ERRO: ARQUIVO CORROMPIDO",
-                "ALERTA: ATIVIDADE SUSPEITA"
-            ];
-            
+            const frases = ["SISTEMA: ENTRADA NÃO AUTORIZADA", "AVISO: MEMÓRIA SOBRECARREGADA", "ERRO: ARQUIVO CORROMPIDO", "ALERTA: ATIVIDADE SUSPEITA"];
             const msg = frases[Math.floor(Math.random() * frases.length)];
-
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
-            
             const top = Math.floor(Math.random() * 60);
             const left = Math.floor(Math.random() * 60);
-            
             modal.innerHTML = `
                 <div class="modal-box" style="top: ${top}%; left: ${left}%;">
                     <div class="modal-header">
@@ -86,28 +77,19 @@
                     </div>
                 </div>
             `;
-            
             document.body.appendChild(modal);
         }
-
-        // Dispara um novo pop-up a cada 8 segundos
         setInterval(criarPopUpAleatorio, 8000);
-        <script>
-    // 1. Carrega o arquivo de áudio
-    const clickSound = new Audio('click.mp3');
 
-    // 2. Função para tocar o som
-    function playClick() {
-        clickSound.currentTime = 0; // Reinicia o áudio para permitir cliques rápidos
-        clickSound.play().catch(e => console.log("Áudio aguardando interação do usuário."));
-    }
-
-    // 3. Aplica o efeito a todos os botões com a classe 'botao'
-    document.querySelectorAll('.botao').forEach(botao => {
-        botao.addEventListener('click', playClick);
-    });
-</script>
-
+        // 3. Sistema de Áudio
+        const clickSound = new Audio('click.mp3');
+        function playClick() {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(e => console.log("Áudio aguardando interação."));
+        }
+        document.querySelectorAll('.botao').forEach(botao => {
+            botao.addEventListener('click', playClick);
+        });
     </script>
 </body>
 </html>
