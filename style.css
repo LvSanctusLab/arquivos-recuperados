@@ -9,8 +9,8 @@ body {
     padding: 20px;
     min-height: 100vh;
     display: flex;
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center;     /* Centraliza horizontalmente */
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -20,18 +20,13 @@ body {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin: auto; /* Força a centralização dentro do body */
+    margin: auto;
     padding: 20px 0;
 }
 
-
-
-
 h1 { font-size: 32px; border-bottom: 1px solid #0f0; padding-bottom: 10px; }
-
 p { font-size: 24px; line-height: 1.6; margin: 10px 0; }
 
-/* O estilo que faltava para os botões */
 .botao {
     display: block;
     width: 100%;
@@ -58,49 +53,47 @@ p { font-size: 24px; line-height: 1.6; margin: 10px 0; }
     z-index: 1000;
 }
 
-#popup-terminal {
-    position: fixed;
-    background: #000;
-    color: #0f0;
-    border: 1px solid #0f0;
-    padding: 10px;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    z-index: 9999;
-    pointer-events: none; /* Para não atrapalhar o clique nos botões */
-    text-transform: uppercase;
-}
-/* O segredo: 'pointer-events: none' no overlay permite clicar atrás */
+/* --- SISTEMA MODAL (FLUTUANTE) --- */
 .modal-overlay {
     display: block; 
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: 10000;
-    pointer-events: none; /* Permite cliques através do fundo transparente */
+    pointer-events: none;
 }
 
-/* O modal em si precisa de 'pointer-events: auto' para ser clicável */
 .modal-box {
     position: absolute;
     width: 300px;
     background: #000;
     border: 2px solid #0f0;
     padding: 15px;
-    pointer-events: auto; /* Garante que você consiga clicar na janela */
+    pointer-events: auto;
 }
 
-/* Botão X estilizado como botão real */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #0f0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
 .close-btn {
-    background: #0f0;
-    color: #000;
-    border: none;
-    padding: 2px 8px;
+    background: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 2px 10px;
     cursor: pointer;
     font-family: 'Courier New', monospace;
-    font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 .close-btn:hover {
-    background: #fff;
+    background: #0f0;
+    color: #000;
 }
+
