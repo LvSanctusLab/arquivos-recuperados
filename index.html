@@ -92,6 +92,22 @@
 
         // Dispara um novo pop-up a cada 8 segundos
         setInterval(criarPopUpAleatorio, 8000);
+        <script>
+    // 1. Carrega o arquivo de áudio
+    const clickSound = new Audio('click.mp3');
+
+    // 2. Função para tocar o som
+    function playClick() {
+        clickSound.currentTime = 0; // Reinicia o áudio para permitir cliques rápidos
+        clickSound.play().catch(e => console.log("Áudio aguardando interação do usuário."));
+    }
+
+    // 3. Aplica o efeito a todos os botões com a classe 'botao'
+    document.querySelectorAll('.botao').forEach(botao => {
+        botao.addEventListener('click', playClick);
+    });
+</script>
+
     </script>
 </body>
 </html>
