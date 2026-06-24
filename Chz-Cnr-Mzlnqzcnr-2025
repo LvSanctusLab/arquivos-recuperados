@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>SISTEMA_ALPHA</title>
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+    <script>
+        if (sessionStorage.getItem('logado') !== 'true') window.location.href = 'index.html';
+    </script>
+
+    <div id="status-panel">CPU: 42% | HORA: <span id="relogio"></span></div>
+    
+    <div id="container">
+        <h1>> Chz-Cnr-Mzlnqzcnr-2025</h1>
+
+        <!-- COLOQUE SEUS PARÁGRAFOS ABAIXO -->
+        <p>Texto do primeiro parágrafo...</p>
+        <p>Texto do segundo parágrafo...</p>
+
+        <hr style="border: 0; border-top: 1px solid #0f0; margin: 20px 0;">
+        <a class="botao" href="carta.html">> voltar</a>
+    </div>
+
+    <div id="popup-terminal" style="display:none;"><span id="popup-text"></span></div>
+
+    <script>
+        setInterval(() => { const r = document.getElementById('relogio'); if(r) r.innerText = new Date().toLocaleTimeString(); }, 1000);
+        const frases = ["> SISTEMA ESTÁVEL", "> ACESSO REMOTO ATIVO", "> VERIFICANDO DADOS...", "> AVISO: MANTENHA O SILÊNCIO"];
+        function mostrarPopup() {
+            const popup = document.getElementById('popup-terminal');
+            const texto = document.getElementById('popup-text');
+            texto.innerText = frases[Math.floor(Math.random() * frases.length)];
+            popup.style.top = Math.floor(Math.random() * 80) + "%";
+            popup.style.left = Math.floor(Math.random() * 80) + "%";
+            popup.style.display = 'block';
+            setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        }
+        setInterval(mostrarPopup, 15000);
+    </script>
+</body>
+</html>
